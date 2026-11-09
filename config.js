@@ -1,2 +1,2 @@
-// Dán link Web app của Apps Script vào giữa hai dấu nháy (link kết thúc bằng /exec)
-window.TTD_API_URL = 'DAN_LINK_WEB_APP_VAO_DAY';
+// Link Web app Apps Script (backend). Doi link: dan link moi vao giua hai dau nhay.
+window.TTD_API_URL = 'https://script.google.com/macros/s/AKfycbxpFrj6-dkJFQplhtWQCmpP4HhZIDfbsSZGANvWR_BIxJBtJL2z21T6rwqOtLAVb0LG/exec';
