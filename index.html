@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tết triệu đô – Trao yêu thương</title>
+<meta name="description" content="Chung tay gây quỹ hỗ trợ các bé mắc tim bẩm sinh có hoàn cảnh khó khăn tại Bệnh viện E.">
+<meta property="og:title" content="Tết triệu đô – Trao yêu thương">
+<meta property="og:description" content="Mua quà Tết, đăng ký dịch vụ, tham gia hoạt động, đấu giá hoặc ủng hộ trực tiếp để gây quỹ cho các bé tim bẩm sinh.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#A8201A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 6-8 11-8 11z' fill='%23A8201A'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --paper:#FFFDF8; --card:#FFFFFF; --ink:#2A1F1A; --muted:#6B5A4E; --line:#E8DCCB;
+    --red:#A8201A; --red-soft:#F7E6E2; --gold:#8A6100; --gold-soft:#FBF1D9; --green:#2F6B3A; --green-soft:#E3F0E5;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-text-size-adjust:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:24px 16px 72px}
+  button{font-family:var(--sans);font-size:14px;font-weight:600;padding:8px 14px;border-radius:6px;cursor:pointer;border:1px solid var(--red);background:var(--red);color:#fff}
+  button.ghost{border-color:var(--line);background:#fff;color:var(--ink)}
+  button.sm{padding:4px 9px;font-size:12px}
+  button.link{background:none;border:none;color:var(--muted);padding:0;font-weight:500;text-decoration:underline;text-underline-offset:3px}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  input,select,textarea{font-family:var(--sans);font-size:16px;padding:9px 10px;border:1px solid var(--line);border-radius:6px;width:100%;background:#fff;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--gold-soft);border-color:var(--gold)}
+  label.f{display:block;margin-bottom:12px;font-size:13px;color:var(--muted)}
+  label.f>span{display:block;margin-bottom:4px}
+  .hdr{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .eyebrow{color:var(--red);font-size:14px}
+  h1{font-family:var(--serif);font-size:30px;margin:4px 0;font-weight:700;line-height:1.2}
+  .sub{color:var(--muted);font-size:15px;line-height:1.5;max-width:760px}
+  .progress{border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:14px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+  .progress .full{grid-column:1/-1}
+  .prow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font-size:14px;color:var(--muted);margin-bottom:6px;align-items:baseline}
+  .big{color:var(--red);font-size:24px;font-family:var(--serif);font-weight:700}
+  .bar{height:10px;background:var(--red-soft);border-radius:5px;overflow:hidden}
+  .bar>div{height:100%;background:var(--red);transition:width .6s ease}
+  .stat .l{font-size:13px;color:var(--muted)} .stat .v{font-size:18px;font-weight:700}
+  .err{margin-top:12px;padding:10px 12px;background:var(--red-soft);color:var(--red);border-radius:6px;font-size:14px}
+  nav.tabs{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--line);margin:18px 0;scrollbar-width:none}
+  nav.tabs::-webkit-scrollbar{display:none}
+  nav.tabs button{background:none;border:none;border-bottom:3px solid transparent;border-radius:0;padding:10px 14px;font-size:15px;font-weight:500;color:var(--ink);white-space:nowrap}
+  nav.tabs button.on{border-bottom-color:var(--red);color:var(--red);font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .card{border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px;display:flex;flex-direction:column;gap:8px}
+  .meta{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--red)}
+  .meta.gold{color:var(--gold)}
+  .ttl{font-family:var(--serif);font-size:18px;line-height:1.3}
+  .desc{font-size:14px;color:var(--muted);line-height:1.5;flex:1}
+  .small{font-size:13px;color:var(--muted)}
+  .row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+  .price{font-weight:700} .price small{font-weight:400;color:var(--muted);font-size:13px}
+  .ok{color:var(--green)} .no{color:var(--red)}
+  .goldbox{background:var(--gold-soft);border-radius:6px;padding:10px;font-size:14px}
+  .pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;background:var(--gold-soft);color:var(--gold);white-space:nowrap}
+  .pill.paid{background:var(--green-soft);color:var(--green)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .empty{color:var(--muted);padding:24px 0}
+  .ledger{display:grid;grid-template-columns:minmax(0,2fr) minmax(240px,1fr);gap:24px;align-items:start}
+  @media (max-width:820px){.ledger{grid-template-columns:1fr}}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:flex-end}
+  .filters label{font-size:13px;color:var(--muted)}
+  .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:#fff}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:760px}
+  th{background:var(--gold-soft);text-align:left;padding:8px 10px;font-weight:600}
+  td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  .nowrap{white-space:nowrap}
+  h3{font-family:var(--serif);font-size:19px;margin:0 0 10px}
+  .team{margin-bottom:10px}
+  .team .tb{height:6px;background:var(--gold-soft);border-radius:3px;margin-top:3px}
+  .team .tb>div{height:100%;background:var(--gold);border-radius:3px}
+  .modal-bg{position:fixed;inset:0;background:rgba(42,31,26,.45);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+  .modal{background:var(--paper);border-radius:10px;padding:20px;width:100%;max-width:440px;max-height:92vh;overflow-y:auto;border:1px solid var(--line)}
+  .modal.wide{max-width:560px}
+  .mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px}
+  .mh h2{margin:0;font-family:var(--serif);font-size:20px;line-height:1.3}
+  .x{background:none;border:none;color:var(--ink);padding:6px}
+  .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;display:flex;gap:12px;align-items:center;font-size:14px;max-width:calc(100% - 32px);z-index:60;line-height:1.4}
+  .toast button{background:none;border:none;color:#FFD98A;padding:0}
+  .payrow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line)}
+  .payrow .v{font-weight:600;word-break:break-word}
+  .qr{text-align:center;margin:6px 0 12px}
+  .qr img{width:220px;max-width:100%;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .section{margin-bottom:30px}
+  .two{display:flex;gap:10px;flex-wrap:wrap} .two>*{flex:1 1 180px}
+  footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--muted)}
+  .skeleton{height:120px;border-radius:8px;background:linear-gradient(90deg,#F6EFE3,#FBF7EF,#F6EFE3);background-size:200% 100%;animation:sh 1.2s infinite}
+  @keyframes sh{to{background-position:-200% 0}}
+  @media (prefers-reduced-motion:reduce){.skeleton{animation:none}.bar>div{transition:none}}
+  @media (max-width:520px){h1{font-size:24px}.wrap{padding-top:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="top"></div>
+  <div id="err" class="err" role="alert" hidden></div>
+  <nav id="tabs" class="tabs"></nav>
+  <main id="view"></main>
+  <footer>
+    <span id="updated"></span>
+    <span id="adminLink"></span>
+  </footer>
+</div>
+<div id="modalRoot"></div>
+<div id="toastRoot"></div>
+
+<script src="config.js"></script>
+<script>
+/* ============================== Hằng số & tiện ích ============================== */
+const KIND_LABEL = { product: 'Sản phẩm', service: 'Dịch vụ', activity: 'Hoạt động' };
+const KIND_ICON = { product: 'gift', service: 'hand', activity: 'calendar' };
+const ACTION_LABEL = { product: 'Mua ủng hộ', service: 'Đăng ký', activity: 'Tham gia' };
+const TYPE_LABEL = { product: 'Mua sản phẩm', service: 'Đăng ký dịch vụ', activity: 'Tham gia hoạt động', auction: 'Đấu giá', donation: 'Ủng hộ' };
+const TABS = [['product', 'Sản phẩm'], ['service', 'Dịch vụ'], ['activity', 'Hoạt động'], ['auction', 'Đấu giá'], ['donate', 'Ủng hộ'], ['ledger', 'Sổ quỹ']];
+const VN_TZ = 'Asia/Ho_Chi_Minh';
+
+const ICONS = {
+  gift: '<rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 12h18M12 8v13M12 8c-2-4-6-4-6-1s6 1 6 1zm0 0c2-4 6-4 6-1s-6 1-6 1z"/>',
+  hand: '<path d="M4 14l4 4h8l4-6-2-1-3 3V6a1.5 1.5 0 00-3 0v5-7a1.5 1.5 0 00-3 0v8"/>',
+  calendar: '<rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  gavel: '<path d="M14 4l6 6M11 7l6 6M12.5 5.5l-4 4 6 6 4-4M9 12l-6 6 2 2 6-6"/>',
+  x: '<path d="M6 6l12 12M18 6L6 18"/>',
+};
+const icon = (n) => `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
+
+const h = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const vnd = (n) => (Number.isFinite(Number(n)) ? Number(n).toLocaleString('vi-VN') + ' đ' : '0 đ');
+const fmtDate = (iso) => { const d = new Date(iso); return isNaN(d) ? '' : d.toLocaleString('vi-VN', { timeZone: VN_TZ, day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }); };
+const fmtDay = (s) => { if (!s) return ''; const d = new Date(s + 'T00:00:00+07:00'); return isNaN(d) ? s : d.toLocaleDateString('vi-VN', { timeZone: VN_TZ }); };
+const $ = (sel, root = document) => root.querySelector(sel);
+
+const store = {
+  get(k, area = 'local') { try { return JSON.parse(window[area + 'Storage'].getItem(k)); } catch (e) { return null; } },
+  set(k, v, area = 'local') { try { window[area + 'Storage'].setItem(k, JSON.stringify(v)); } catch (e) {} },
+  del(k, area = 'local') { try { window[area + 'Storage'].removeItem(k); } catch (e) {} },
+};
+
+/** Gọi API Apps Script (link cấu hình trong config.js) */
+const API_URL = (window.TTD_API_URL || '').trim();
+async function api(fn, ...args) {
+  if (!/^https:\/\/script\.google\.com\/.+\/exec$/.test(API_URL)) throw new Error('Trang chưa được kết nối dữ liệu. Ban tổ chức cần dán link Web app vào file config.js.');
+  let res;
+  try {
+    res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ fn, args }), redirect: 'follow' });
+  } catch (e) { throw new Error('Không kết nối được máy chủ. Vui lòng kiểm tra mạng và thử lại.'); }
+  let j;
+  try { j = await res.json(); } catch (e) { throw new Error('Máy chủ phản hồi không hợp lệ. Ban tổ chức kiểm tra lại quyền truy cập Web app ("Anyone").'); }
+  if (!j.ok) throw new Error(j.error || 'Đã có lỗi xảy ra');
+  return j.data;
+}
+const errMsg = (e) => String((e && e.message) || e || 'Đã có lỗi xảy ra').replace(/^Exception:\s*/, '');
+
+/* ============================== Trạng thái ============================== */
+const S = {
+  tab: 'product',
+  data: null,
+  loading: true,
+  error: '',
+  timeOffset: 0,
+  who: Object.assign({ name: '', team: '', contact: '' }, store.get('ttd_who') || {}),
+  admin: store.get('ttd_admin', 'session'), // {pw, name, sheetUrl}
+  lf: { q: '', type: 'all', status: 'all' },
+  busy: false,
+};
+const now = () => Date.now() + S.timeOffset;
+const saveWho = () => store.set('ttd_who', S.who);
+
+/* ============================== Tải dữ liệu ============================== */
+async function load(silent) {
+  if (!silent) { S.loading = true; render(); }
+  try {
+    const d = S.admin ? await api('adminGetState', S.admin.pw) : await api('getState');
+    S.data = d; S.error = '';
+    S.timeOffset = d.serverTime - Date.now();
+    if (!d.teams.includes(S.who.team)) S.who.team = d.teams[0] || '';
+  } catch (e) {
+    if (S.admin && /mật khẩu/i.test(errMsg(e))) { logoutAdmin(true); return load(silent); }
+    S.error = errMsg(e);
+  }
+  S.loading = false;
+  render();
+}
+
+/* ============================== Tính toán ============================== */
+function derived() {
+  const d = S.data;
+  const items = d.contributions;
+  const sold = {};
+  items.forEach((c) => { if (c.refId && c.type !== 'auction') sold[c.refId] = (sold[c.refId] || 0) + (c.qty || 0); });
+  const paidItems = items.filter((c) => c.paid);
+  const total = paidItems.reduce((s, c) => s + c.amount, 0);
+  const pending = items.filter((c) => !c.paid).reduce((s, c) => s + c.amount, 0);
+  const topByLot = {};
+  d.bids.forEach((b) => { if (!topByLot[b.lotId] || b.amount > topByLot[b.lotId].amount) topByLot[b.lotId] = b; });
+  const pledged = d.lots.filter((l) => !items.some((c) => c.type === 'auction' && c.refId === l.id))
+    .reduce((s, l) => s + (topByLot[l.id] ? topByLot[l.id].amount : 0), 0);
+  return { sold, total, pending, count: paidItems.length, pledged, topByLot };
+}
+const bidsFor = (lotId) => S.data.bids.filter((b) => b.lotId === lotId).sort((a, b) => b.amount - a.amount);
+const minFor = (l) => { const t = bidsFor(l.id)[0]; return t ? t.amount + l.step : l.startPrice; };
+
+/* ============================== Render ============================== */
+function render() {
+  const d = S.data;
+  const c = d ? d.campaign : {};
+  document.title = c.title || 'Tết triệu đô';
+
+  $('#top').innerHTML = d ? `
+    <div class="hdr">
+      <div>
+        <div class="eyebrow">${h(c.org)} · ${h(c.period)}</div>
+        <h1>${h(c.title)}</h1>
+        <div class="sub">${h(c.beneficiary)}</div>
+      </div>
+      <button class="ghost" data-act="refresh" ${S.loading ? 'disabled' : ''}>${S.loading ? 'Đang tải...' : 'Làm mới'}</button>
+    </div>
+    ${renderProgress()}` : `<div class="skeleton" style="height:150px"></div>`;
+
+  const err = $('#err');
+  err.hidden = !S.error; err.textContent = S.error;
+
+  const tabs = TABS.concat(S.admin ? [['admin', 'Quản trị']] : []);
+  $('#tabs').innerHTML = tabs.map(([id, l]) => `<button class="${S.tab === id ? 'on' : ''}" data-act="tab" data-id="${id}">${l}</button>`).join('');
+
+  const v = $('#view');
+  if (!d) { v.innerHTML = S.loading ? `<div class="grid">${'<div class="skeleton"></div>'.repeat(3)}</div>` : ''; }
+  else if (['product', 'service', 'activity'].includes(S.tab)) v.innerHTML = renderCatalog(S.tab);
+  else if (S.tab === 'auction') v.innerHTML = renderAuctions();
+  else if (S.tab === 'donate') { v.innerHTML = renderDonate(); bindDonate(); }
+  else if (S.tab === 'ledger') { v.innerHTML = renderLedger(); bindLedger(); }
+  else if (S.tab === 'admin' && S.admin) { v.innerHTML = renderAdmin(); bindAdmin(); }
+
+  $('#updated').textContent = d ? 'Cập nhật lúc ' + fmtDate(new Date(now()).toISOString()) : '';
+  $('#adminLink').innerHTML = S.admin
+    ? `Quản trị: ${h(S.admin.name)} · <button class="link" data-act="logout">Đăng xuất</button>`
+    : `<button class="link" data-act="login">Ban tổ chức đăng nhập</button>`;
+}
+
+function renderProgress() {
+  const g = S.data.campaign.goal || 0;
+  const x = derived();
+  const pct = g > 0 ? Math.min(100, (x.total / g) * 100) : 0;
+  return `<div class="progress">
+    <div class="full">
+      <div class="prow"><span>Đã nhận vào quỹ <span class="big">${vnd(x.total)}</span></span><span>Mục tiêu ${vnd(g)} · ${pct.toFixed(1)}%</span></div>
+      <div class="bar" role="progressbar" aria-valuenow="${pct.toFixed(0)}" aria-valuemin="0" aria-valuemax="100"><div style="width:${pct}%"></div></div>
+    </div>
+    ${stat('Lượt đã xác nhận', x.count)}
+    ${stat('Đang chờ xác nhận thanh toán', vnd(x.pending))}
+    ${stat('Giá dẫn đầu đấu giá (chưa tính vào quỹ)', vnd(x.pledged))}
+    ${stat('Còn cần', vnd(Math.max(0, g - x.total)))}
+  </div>`;
+}
+const stat = (l, v) => `<div class="stat"><div class="l">${l}</div><div class="v">${v}</div></div>`;
+
+function renderCatalog(kind) {
+  const { sold } = derived();
+  const list = S.data.offers.filter((o) => o.kind === kind);
+  if (!list.length) return `<div class="empty">Chưa có mục nào trong danh mục này.</div>`;
+  return `<div class="grid">${list.map((o) => {
+    const left = o.stock !== null && o.stock !== undefined ? o.stock - (sold[o.id] || 0) : null;
+    return `<div class="card">
+      <div class="meta">${icon(KIND_ICON[kind])} ${KIND_LABEL[kind]}${o.owner ? ' · ' + h(o.owner) : ''}</div>
+      <div class="ttl">${h(o.name)}</div>
+      <div class="desc">${h(o.desc)}</div>
+      ${o.date ? `<div class="small">Ngày diễn ra: ${fmtDay(o.date)}</div>` : ''}
+      <div class="row" style="margin-top:4px">
+        <div>
+          <div class="price">${o.price > 0 ? vnd(o.price) : 'Tùy tâm'} <small>/ ${h(o.unit)}</small></div>
+          ${left !== null ? `<div class="small ${left > 0 ? 'ok' : 'no'}">${left > 0 ? `Còn ${left} ${h(o.unit)}` : 'Đã hết'}</div>` : ''}
+        </div>
+        <button data-act="order" data-id="${h(o.id)}" ${left === 0 || left < 0 ? 'disabled' : ''}>${ACTION_LABEL[kind]}</button>
+      </div>
+    </div>`;
+  }).join('')}</div>`;
+}
+
+function renderAuctions() {
+  const lots = S.data.lots;
+  if (!lots.length) return `<div class="empty">Chưa có vật phẩm đấu giá.</div>`;
+  return `<div class="grid">${lots.map((l) => {
+    const list = bidsFor(l.id); const lead = list[0];
+    const ended = new Date(l.endsAt).getTime() <= now();
+    let foot = '';
+    if (!ended) foot = `<button data-act="bid" data-id="${h(l.id)}">Trả giá</button>`;
+    else if (!lead) foot = `<div class="small">Phiên đã kết thúc, không có người trả giá.</div>`;
+    else {
+      const win = S.data.contributions.find((c) => c.type === 'auction' && c.refId === l.id);
+      foot = `<div style="border-top:1px solid var(--line);padding-top:8px;font-size:14px">
+        <div>Người thắng: <b>${h(lead.name)}</b> – ${vnd(lead.amount)}</div>
+        ${win ? `<div class="row" style="margin-top:6px"><span class="pill ${win.paid ? 'paid' : ''}">${win.paid ? 'Đã nhận tiền' : 'Chờ thanh toán'}</span>
+            ${!win.paid ? `<button class="ghost sm" data-act="pay" data-id="${h(win.id)}">Hướng dẫn chuyển khoản</button>` : ''}</div>`
+          : S.admin ? `<button style="margin-top:6px;width:100%" data-act="recordWin" data-id="${h(l.id)}">Ghi nhận khoản thanh toán cho người thắng</button>`
+          : `<div class="small" style="margin-top:4px">Ban tổ chức sẽ sớm liên hệ người thắng để thanh toán.</div>`}
+      </div>`;
+    }
+    return `<div class="card">
+      <div class="meta gold">${icon('gavel')} Tặng bởi ${h(l.donor)}</div>
+      <div class="ttl">${h(l.name)}</div>
+      <div class="desc">${h(l.desc)}</div>
+      <div class="goldbox">
+        <div>Giá cao nhất: <b>${vnd(lead ? lead.amount : l.startPrice)}</b>${!lead ? ' (giá khởi điểm)' : ''}</div>
+        ${lead ? `<div class="small">Dẫn đầu: ${h(lead.name)} – ${h(lead.team)}</div>` : ''}
+        <div class="small">${list.length} lượt trả giá · ${ended ? 'Đã kết thúc' : 'Kết thúc'} ${fmtDate(l.endsAt)}</div>
+      </div>
+      ${foot}
+    </div>`;
+  }).join('')}</div>`;
+}
+
+function whoFields() {
+  const teams = S.data.teams;
+  return `
+    <label class="f"><span>Họ và tên</span><input data-who="name" value="${h(S.who.name)}" autocomplete="name" maxlength="80"></label>
+    ${teams.length > 1 ? `<label class="f"><span>Phòng ban</span><select data-who="team">${teams.map((t) => `<option ${t === S.who.team ? 'selected' : ''}>${h(t)}</option>`).join('')}</select></label>` : ''}
+    <label class="f"><span>Email hoặc số điện thoại (chỉ Ban tổ chức xem)</span><input data-who="contact" value="${h(S.who.contact)}" autocomplete="email" maxlength="100"></label>`;
+}
+function bindWho(root, onChange) {
+  root.querySelectorAll('[data-who]').forEach((el) => el.addEventListener('input', () => { S.who[el.dataset.who] = el.value; saveWho(); onChange && onChange(); }));
+}
+const whoOk = () => S.who.name.trim() && S.who.contact.trim();
+
+function renderDonate() {
+  return `<div style="max-width:460px">
+    ${whoFields()}
+    <label class="f"><span>Số tiền ủng hộ (đ)</span><input id="dAmt" type="number" inputmode="numeric" min="10000" step="10000" value="${S.donateAmt || 500000}"></label>
+    <div class="chips">${[200000, 500000, 1000000, 2000000].map((v) => `<button class="${(S.donateAmt || 500000) === v ? '' : 'ghost'}" data-amt="${v}">${vnd(v)}</button>`).join('')}</div>
+    <label class="f"><span>Lời chúc gửi các em (không bắt buộc)</span><input id="dNote" maxlength="300"></label>
+    <button id="dGo">Ghi nhận ủng hộ</button>
+  </div>`;
+}
+function bindDonate() {
+  const v = $('#view');
+  const go = $('#dGo'); const amt = $('#dAmt');
+  const sync = () => { go.disabled = S.busy || !whoOk() || !(Number(amt.value) >= 10000); };
+  bindWho(v, sync);
+  amt.addEventListener('input', () => { S.donateAmt = Number(amt.value) || 0; v.querySelectorAll('[data-amt]').forEach((b) => b.classList.toggle('ghost', Number(b.dataset.amt) !== S.donateAmt)); sync(); });
+  v.querySelectorAll('[data-amt]').forEach((b) => b.addEventListener('click', () => { amt.value = b.dataset.amt; amt.dispatchEvent(new Event('input')); }));
+  go.addEventListener('click', async () => {
+    S.busy = true; go.disabled = true; go.textContent = 'Đang ghi nhận...';
+    const ok = await submitContribution({ type: 'donation', amount: Number(amt.value), note: $('#dNote').value });
+    S.busy = false;
+    if (ok) { $('#dNote').value = ''; }
+    go.textContent = 'Ghi nhận ủng hộ'; sync();
+  });
+  sync();
+}
+
+function filteredRows() {
+  const { q, type, status } = S.lf; const qq = q.trim().toLowerCase();
+  return S.data.contributions
+    .filter((c) => type === 'all' || c.type === type)
+    .filter((c) => status === 'all' || (status === 'paid' ? c.paid : !c.paid))
+    .filter((c) => !qq || `${c.name} ${c.team} ${c.refName} ${c.payCode} ${c.contact || ''}`.toLowerCase().includes(qq))
+    .sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+}
+
+function renderLedger() {
+  const items = S.data.contributions;
+  const byTeam = {};
+  items.filter((c) => c.paid).forEach((c) => { byTeam[c.team || '—'] = (byTeam[c.team || '—'] || 0) + c.amount; });
+  const teams = Object.entries(byTeam).sort((a, b) => b[1] - a[1]);
+  const max = teams[0] ? teams[0][1] : 1;
+  return `<div class="ledger">
+    <section style="min-width:0">
+      <div class="filters">
+        <label style="flex:1 1 180px">Tìm kiếm<input id="lq" value="${h(S.lf.q)}" placeholder="Tên, nội dung, mã CK"></label>
+        <label style="flex:0 1 170px">Hình thức<select id="lt"><option value="all">Tất cả</option>${Object.entries(TYPE_LABEL).map(([k, v]) => `<option value="${k}" ${S.lf.type === k ? 'selected' : ''}>${v}</option>`).join('')}</select></label>
+        <label style="flex:0 1 170px">Trạng thái<select id="ls">
+          <option value="all">Tất cả</option><option value="pending" ${S.lf.status === 'pending' ? 'selected' : ''}>Chờ xác nhận</option><option value="paid" ${S.lf.status === 'paid' ? 'selected' : ''}>Đã nhận</option></select></label>
+        <button class="ghost" data-act="csv">Xuất CSV</button>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Thời gian</th><th>Người đóng góp</th><th>Hình thức</th><th>Nội dung</th><th>Số tiền</th><th>Trạng thái</th>${S.admin ? '<th></th>' : ''}</tr></thead>
+        <tbody id="lbody">${ledgerRows()}</tbody>
+      </table></div>
+    </section>
+    <section>
+      <h3>Bảng vàng đơn vị</h3>
+      ${teams.length ? teams.map(([t, v], i) => `<div class="team"><div class="row" style="font-size:14px"><span>${i + 1}. ${h(t)}</span><b>${vnd(v)}</b></div><div class="tb"><div style="width:${(v / max) * 100}%"></div></div></div>`).join('') : '<div class="small">Chưa có khoản nào được xác nhận.</div>'}
+    </section>
+  </div>`;
+}
+function ledgerRows() {
+  const rows = filteredRows();
+  const cols = S.admin ? 7 : 6;
+  if (!rows.length) return `<tr><td colspan="${cols}" style="padding:16px;text-align:center;color:var(--muted)">${S.data.contributions.length ? 'Không có khoản đóng góp nào khớp bộ lọc.' : 'Chưa có khoản đóng góp nào. Hãy là người đầu tiên trao yêu thương.'}</td></tr>`;
+  return rows.map((c) => `<tr>
+    <td class="nowrap small">${fmtDate(c.createdAt)}</td>
+    <td>${h(c.name)}<div class="small">${h(c.team)}</div>${S.admin && c.contact ? `<div class="small">${h(c.contact)}</div>` : ''}</td>
+    <td>${TYPE_LABEL[c.type] || h(c.type)}</td>
+    <td>${h(c.refName)}${c.qty > 1 ? ' × ' + c.qty : ''}${c.note ? `<div class="small" style="font-style:italic">"${h(c.note)}"</div>` : ''}<div class="small">Mã CK: ${h(c.payCode)}</div></td>
+    <td class="nowrap" style="font-weight:600">${vnd(c.amount)}</td>
+    <td class="nowrap"><span class="pill ${c.paid ? 'paid' : ''}">${c.paid ? 'Đã nhận' : 'Chờ xác nhận'}</span>${c.paid && c.paidAt ? `<div class="small">${fmtDate(c.paidAt)}</div>` : ''}
+      ${!c.paid ? `<div><button class="link small" data-act="pay" data-id="${h(c.id)}">Xem cách chuyển khoản</button></div>` : ''}</td>
+    ${S.admin ? `<td class="nowrap"><button class="sm ${c.paid ? 'ghost' : ''}" data-act="togglePaid" data-id="${h(c.id)}">${c.paid ? 'Bỏ xác nhận' : 'Xác nhận đã nhận'}</button> <button class="ghost sm" data-act="delC" data-id="${h(c.id)}">Xóa</button></td>` : ''}
+  </tr>`).join('');
+}
+function bindLedger() {
+  const upd = () => { $('#lbody').innerHTML = ledgerRows(); };
+  $('#lq').addEventListener('input', (e) => { S.lf.q = e.target.value; upd(); });
+  $('#lt').addEventListener('change', (e) => { S.lf.type = e.target.value; upd(); });
+  $('#ls').addEventListener('change', (e) => { S.lf.status = e.target.value; upd(); });
+}
+
+function exportCsv() {
+  const esc = (s) => `"${String(s ?? '').replace(/"/g, '""')}"`;
+  const head = ['Thời gian', 'Họ tên', 'Phòng ban'].concat(S.admin ? ['Liên hệ'] : []).concat(['Hình thức', 'Nội dung', 'Số lượng', 'Số tiền', 'Lời nhắn', 'Trạng thái', 'Thời điểm xác nhận', 'Nội dung CK']);
+  const body = filteredRows().map((c) => [fmtDate(c.createdAt), c.name, c.team].concat(S.admin ? [c.contact || ''] : [])
+    .concat([TYPE_LABEL[c.type], c.refName, c.qty, c.amount, c.note || '', c.paid ? 'Đã nhận' : 'Chờ xác nhận', c.paidAt ? fmtDate(c.paidAt) : '', c.payCode]).map(esc).join(','));
+  const bidRows = S.data.lots.map((l) => { const t = bidsFor(l.id)[0]; return t ? [l.name, t.name, t.team, t.amount].map(esc).join(',') : ''; }).filter(Boolean);
+  const csv = '﻿' + head.map(esc).join(',') + '\n' + body.join('\n') + '\n\nĐấu giá - dẫn đầu\nVật phẩm,Họ tên,Phòng ban,Giá\n' + bidRows.join('\n');
+  try {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+    a.download = 'so-quy-tet-trieu-do.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+    toast(S.admin ? 'Đã xuất CSV. Bạn cũng có thể mở trực tiếp Google Sheet ở tab Quản trị.' : 'Đã xuất CSV.');
+  } catch (e) { toast('Trình duyệt chặn tải file. Vui lòng thử trên máy tính.'); }
+}
+
+/* ============================== Modal & Toast ============================== */
+function openModal(title, html, onMount, wide) {
+  const root = $('#modalRoot');
+  root.innerHTML = `<div class="modal-bg" data-close="1"><div class="modal ${wide ? 'wide' : ''}" role="dialog" aria-modal="true" aria-label="${h(title)}">
+    <div class="mh"><h2>${h(title)}</h2><button class="x" aria-label="Đóng" data-close="1">${icon('x')}</button></div>
+    <div class="mb">${html}</div></div></div>`;
+  const bg = root.querySelector('.modal-bg');
+  bg.addEventListener('click', (e) => { if (e.target === bg) closeModal(); });
+  root.querySelector('.x').addEventListener('click', closeModal);
+  onMount && onMount(root.querySelector('.mb'));
+  const first = root.querySelector('.mb input, .mb select, .mb textarea'); if (first && window.innerWidth > 640) first.focus();
+}
+function closeModal() { $('#modalRoot').innerHTML = ''; }
+const modalOpen = () => !!$('#modalRoot').innerHTML;
+
+let toastTimer;
+function toast(text, undo) {
+  const root = $('#toastRoot');
+  root.innerHTML = `<div class="toast" role="status"><span>${h(text)}</span>${undo ? '<button>Hoàn tác</button>' : ''}</div>`;
+  if (undo) root.querySelector('button').addEventListener('click', async () => { root.innerHTML = ''; await undo(); });
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { root.innerHTML = ''; }, undo ? 8000 : 5000);
+}
+
+/* ============================== Đăng ký / Thanh toán ============================== */
+async function submitContribution(payload) {
+  try {
+    const c = await api('addContribution', Object.assign({ name: S.who.name, team: S.who.team, contact: S.who.contact }, payload));
+    const token = c.undoToken; delete c.undoToken;
+    S.data.contributions.push(c);
+    render();
+    openPay(c);
+    toast(`Đã ghi nhận ${c.refName} của ${c.name}. Khoản này được cộng vào quỹ khi Ban tổ chức xác nhận đã nhận tiền.`, async () => {
+      try { await api('undoContribution', c.id, token); S.data.contributions = S.data.contributions.filter((x) => x.id !== c.id); closeModal(); render(); toast('Đã hủy đăng ký.'); }
+      catch (e) { toast(errMsg(e)); }
+    });
+    return true;
+  } catch (e) { toast(errMsg(e)); return false; }
+}
+
+function openOrder(o) {
+  const free = !(o.price > 0);
+  openModal(o.name, `
+    ${whoFields()}
+    <label class="f"><span>Số lượng (${h(o.unit)})</span><input id="oQty" type="number" inputmode="numeric" min="1" value="1"></label>
+    ${free ? `<label class="f"><span>Số tiền đóng góp (đ)</span><input id="oAmt" type="number" inputmode="numeric" min="10000" step="10000" value="100000"></label>` : ''}
+    <label class="f"><span>Lời nhắn (không bắt buộc)</span><input id="oNote" maxlength="300"></label>
+    <div class="row" style="margin-top:8px"><div>Đóng góp: <b id="oTot"></b></div><button id="oGo">Xác nhận</button></div>`,
+    (m) => {
+      const qty = $('#oQty', m), go = $('#oGo', m), amt = $('#oAmt', m);
+      const total = () => free ? Number(amt.value) || 0 : Math.max(1, Math.floor(Number(qty.value) || 1)) * o.price;
+      const sync = () => { $('#oTot', m).textContent = vnd(total()); go.disabled = S.busy || !whoOk() || !(Number(qty.value) >= 1) || (free && total() < 10000); };
+      bindWho(m, sync); qty.addEventListener('input', sync); amt && amt.addEventListener('input', sync); sync();
+      go.addEventListener('click', async () => {
+        S.busy = true; go.textContent = 'Đang ghi nhận...'; sync();
+        await submitContribution({ type: o.kind, refId: o.id, qty: Math.floor(Number(qty.value)), amount: free ? Number(amt.value) : undefined, note: $('#oNote', m).value });
+        S.busy = false; if (modalOpen() && $('#oGo')) { go.textContent = 'Xác nhận'; sync(); }
+      });
+    });
+}
+
+function openBid(l) {
+  const min = minFor(l);
+  openModal(l.name, `
+    ${whoFields()}
+    <label class="f"><span>Mức giá (tối thiểu ${vnd(min)}, bước giá ${vnd(l.step)})</span><input id="bAmt" type="number" inputmode="numeric" step="${l.step}" min="${min}" value="${min}"></label>
+    <div id="bWarn" class="small no" style="margin:-4px 0 8px" hidden></div>
+    <div class="small" style="margin-bottom:10px">Gần nhất: ${bidsFor(l.id).slice(0, 3).map((b) => `${h(b.name)} ${vnd(b.amount)}`).join(' · ') || 'Chưa có lượt trả giá'}</div>
+    <div class="small" style="margin-bottom:12px">Trả giá là cam kết thanh toán nếu bạn thắng khi phiên kết thúc (${fmtDate(l.endsAt)}).</div>
+    <button id="bGo" style="width:100%">Xác nhận trả giá</button>`,
+    (m) => {
+      const amt = $('#bAmt', m), go = $('#bGo', m), warn = $('#bWarn', m);
+      const sync = () => { const ok = Number(amt.value) >= min; warn.hidden = ok; warn.textContent = `Mức giá phải từ ${vnd(min)} trở lên.`; go.disabled = S.busy || !whoOk() || !ok; };
+      bindWho(m, sync); amt.addEventListener('input', sync); sync();
+      go.addEventListener('click', async () => {
+        S.busy = true; go.textContent = 'Đang gửi...'; sync();
+        try {
+          const b = await api('placeBid', { lotId: l.id, name: S.who.name, team: S.who.team, contact: S.who.contact, amount: Math.floor(Number(amt.value)) });
+          S.data.bids.push(b); closeModal(); render(); toast(`${b.name} đang dẫn đầu phiên đấu giá với ${vnd(b.amount)}.`);
+        } catch (e) { toast(errMsg(e)); load(true); closeModal(); }
+        S.busy = false;
+      });
+    });
+}
+
+function openPay(c) {
+  const k = S.data.campaign;
+  const qr = k.bankBin && k.account
+    ? `https://img.vietqr.io/image/${encodeURIComponent(k.bankBin)}-${encodeURIComponent(k.account)}-compact2.png?amount=${c.amount}&addInfo=${encodeURIComponent(c.payCode)}&accountName=${encodeURIComponent(k.holder || '')}`
+    : '';
+  const row = (label, value, shown) => `<div class="payrow"><div style="min-width:0"><div class="small">${label}</div><div class="v">${h(shown || value)}</div></div><button class="ghost sm" data-copy="${h(value)}">Sao chép</button></div>`;
+  openModal('Hướng dẫn chuyển khoản', `
+    <div class="small" style="margin-bottom:8px;line-height:1.5">Quét mã QR bằng app ngân hàng (đã điền sẵn số tiền và nội dung) hoặc chuyển khoản theo thông tin dưới đây. Khoản đóng góp được cộng vào quỹ sau khi Ban tổ chức xác nhận.</div>
+    ${qr ? `<div class="qr"><img src="${h(qr)}" alt="Mã QR chuyển khoản" onerror="this.parentNode.style.display='none'"></div>` : ''}
+    ${k.bankName ? row('Ngân hàng', k.bankName) : ''}
+    ${k.account ? row('Số tài khoản', k.account) : ''}
+    ${k.holder ? row('Chủ tài khoản', k.holder) : ''}
+    ${row('Số tiền', String(c.amount), vnd(c.amount))}
+    ${row('Nội dung chuyển khoản', c.payCode)}
+    <div class="small" style="margin-top:10px">Vui lòng giữ đúng nội dung chuyển khoản để Ban tổ chức đối soát nhanh.</div>`,
+    (m) => m.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', () => copyText(b.dataset.copy, b))));
+}
+
+async function copyText(text, btn) {
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {
+    try { const t = document.createElement('textarea'); t.value = text; t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select(); ok = document.execCommand('copy'); t.remove(); } catch (e2) {}
+  }
+  if (btn) { btn.textContent = ok ? 'Đã chép' : 'Hãy chép tay'; setTimeout(() => { btn.textContent = 'Sao chép'; }, 1500); }
+}
+
+/* ============================== Quản trị ============================== */
+function openLogin() {
+  openModal('Ban tổ chức đăng nhập', `
+    <label class="f"><span>Tên của bạn (ghi vào cột "người xác nhận")</span><input id="aName" maxlength="60" value="${h(S.who.name)}"></label>
+    <label class="f"><span>Mật khẩu quản trị</span><input id="aPw" type="password" autocomplete="current-password"></label>
+    <button id="aGo" style="width:100%">Đăng nhập</button>`,
+    (m) => {
+      const go = $('#aGo', m);
+      const run = async () => {
+        go.disabled = true; go.textContent = 'Đang kiểm tra...';
+        try {
+          const r = await api('adminLogin', $('#aPw', m).value);
+          S.admin = { pw: $('#aPw', m).value, name: $('#aName', m).value.trim() || 'Ban tổ chức', sheetUrl: r.sheetUrl };
+          store.set('ttd_admin', S.admin, 'session');
+          closeModal(); S.tab = 'admin'; await load();
+          toast('Đã đăng nhập quản trị.');
+        } catch (e) { toast(errMsg(e)); go.disabled = false; go.textContent = 'Đăng nhập'; }
+      };
+      go.addEventListener('click', run);
+      $('#aPw', m).addEventListener('keydown', (e) => { if (e.key === 'Enter') run(); });
+    });
+}
+function logoutAdmin(silent) {
+  S.admin = null; store.del('ttd_admin', 'session');
+  if (S.tab === 'admin') S.tab = 'product';
+  if (!silent) { toast('Đã đăng xuất.'); load(true); }
+}
+
+/** Chạy hành động quản trị, hiện toast có Hoàn tác */
+async function adminAction(fn, args, msg, undoFn) {
+  try {
+    const r = await api(fn, S.admin.pw, ...args);
+    await load(true);
+    toast(typeof msg === 'function' ? msg(r) : msg, undoFn ? async () => {
+      try { await undoFn(r); await load(true); toast('Đã hoàn tác.'); } catch (e) { toast(errMsg(e)); }
+    } : null);
+    return r;
+  } catch (e) { toast(errMsg(e)); return null; }
+}
+
+function renderAdmin() {
+  const d = S.data, c = d.campaign;
+  const offerTable = (k) => {
+    const list = d.offers.filter((o) => o.kind === k);
+    return `<div class="section">
+      <div class="row" style="margin-bottom:8px"><h3 style="margin:0">${KIND_LABEL[k]} (${list.length})</h3><button data-act="addOffer" data-id="${k}">Thêm ${KIND_LABEL[k].toLowerCase()}</button></div>
+      <div class="tbl"><table><thead><tr><th>Tên</th><th>Phụ trách</th><th>Giá</th><th>${k === 'activity' ? 'Ngày' : 'Số lượng'}</th><th></th></tr></thead><tbody>
+      ${list.length ? list.map((o) => `<tr><td>${h(o.name)}</td><td>${h(o.owner)}</td><td class="nowrap">${o.price > 0 ? vnd(o.price) : 'Tùy tâm'} / ${h(o.unit)}</td>
+        <td>${k === 'activity' ? fmtDay(o.date) : (o.stock ?? 'Không giới hạn')}</td>
+        <td class="nowrap"><button class="ghost sm" data-act="editOffer" data-id="${h(o.id)}">Sửa</button> <button class="ghost sm" data-act="delOffer" data-id="${h(o.id)}">Xóa</button></td></tr>`).join('')
+        : `<tr><td colspan="5" style="text-align:center;color:var(--muted)">Chưa có mục nào.</td></tr>`}
+      </tbody></table></div></div>`;
+  };
+  return `
+    <div class="section goldbox row">
+      <span>Toàn bộ dữ liệu nằm trong Google Sheet. Bạn có thể lọc, đối soát, sửa trực tiếp ở đó.</span>
+      ${S.admin.sheetUrl ? `<a href="${h(S.admin.sheetUrl)}" target="_blank" rel="noopener"><button class="ghost">Mở Google Sheet</button></a>` : ''}
+    </div>
+    <div class="section" style="max-width:680px">
+      <h3>Thông tin chương trình</h3>
+      <label class="f"><span>Tên chương trình</span><input data-c="title" value="${h(c.title)}"></label>
+      <div class="two"><label class="f"><span>Đơn vị tổ chức</span><input data-c="org" value="${h(c.org)}"></label><label class="f"><span>Thời gian</span><input data-c="period" value="${h(c.period)}"></label></div>
+      <label class="f"><span>Mô tả dưới tên chương trình</span><textarea data-c="beneficiary" rows="3">${h(c.beneficiary)}</textarea></label>
+      <label class="f"><span>Mục tiêu quỹ (đ)</span><input data-c="goal" type="number" min="0" step="1000000" value="${c.goal}"></label>
+      <div class="two"><label class="f"><span>Ngân hàng (hiển thị)</span><input data-c="bankName" value="${h(c.bankName)}"></label><label class="f"><span>Mã BIN VietQR</span><input data-c="bankBin" value="${h(c.bankBin)}"></label></div>
+      <div class="two"><label class="f"><span>Số tài khoản</span><input data-c="account" value="${h(c.account)}"></label><label class="f"><span>Chủ tài khoản</span><input data-c="holder" value="${h(c.holder)}"></label></div>
+      <label class="f"><span>Tiền tố nội dung CK</span><input data-c="payPrefix" value="${h(c.payPrefix)}"></label>
+      <label class="f"><span>Danh sách phòng ban (mỗi dòng một đơn vị)</span><textarea id="aTeams" rows="4">${h(d.teams.join('\n'))}</textarea></label>
+      <button data-act="saveCampaign">Lưu thông tin</button>
+    </div>
+    ${['product', 'service', 'activity'].map(offerTable).join('')}
+    <div class="section">
+      <div class="row" style="margin-bottom:8px"><h3 style="margin:0">Vật phẩm đấu giá (${d.lots.length})</h3><button data-act="addLot">Thêm vật phẩm</button></div>
+      <div class="tbl"><table><thead><tr><th>Tên</th><th>Người tặng</th><th>Khởi điểm / bước giá</th><th>Kết thúc</th><th></th></tr></thead><tbody>
+      ${d.lots.length ? d.lots.map((l) => `<tr><td>${h(l.name)}</td><td>${h(l.donor)}</td><td class="nowrap">${vnd(l.startPrice)} / ${vnd(l.step)}</td><td class="nowrap">${fmtDate(l.endsAt)}</td>
+        <td class="nowrap"><button class="ghost sm" data-act="editLot" data-id="${h(l.id)}">Sửa</button> <button class="ghost sm" data-act="delLot" data-id="${h(l.id)}">Xóa</button></td></tr>`).join('')
+        : `<tr><td colspan="5" style="text-align:center;color:var(--muted)">Chưa có vật phẩm.</td></tr>`}
+      </tbody></table></div>
+    </div>`;
+}
+function bindAdmin() {}
+
+function saveCampaign() {
+  const camp = {};
+  document.querySelectorAll('[data-c]').forEach((el) => { camp[el.dataset.c] = el.value; });
+  if (!camp.title.trim()) return toast('Vui lòng nhập tên chương trình.');
+  const teams = $('#aTeams').value.split('\n').map((s) => s.trim()).filter(Boolean);
+  adminAction('adminSaveCampaign', [camp, teams], 'Đã cập nhật thông tin chương trình.', (prev) => api('adminSaveCampaign', S.admin.pw, prev.campaign, prev.teams));
+}
+
+const toLocalInput = (iso) => { const d = new Date(iso); if (isNaN(d)) return ''; return new Date(d.getTime() + 7 * 3600e3).toISOString().slice(0, 16); };
+const fromLocalInput = (v) => (v ? `${v}:00+07:00` : '');
+
+function openEditOffer(o) {
+  const isNew = !S.data.offers.some((x) => x.id === o.id);
+  const k = o.kind;
+  openModal((isNew ? 'Thêm ' : 'Sửa ') + KIND_LABEL[k].toLowerCase(), `
+    <label class="f"><span>Tên</span><input id="eN" value="${h(o.name)}"></label>
+    <label class="f"><span>Mô tả</span><textarea id="eD" rows="3">${h(o.desc)}</textarea></label>
+    <label class="f"><span>Người/nhóm phụ trách</span><input id="eO" value="${h(o.owner)}"></label>
+    <div class="two"><label class="f"><span>Giá (đ) — 0 = tùy tâm</span><input id="eP" type="number" min="0" value="${o.price ?? 0}"></label><label class="f"><span>Đơn vị</span><input id="eU" value="${h(o.unit)}"></label></div>
+    ${k === 'activity' ? `<label class="f"><span>Ngày diễn ra</span><input id="eDt" type="date" value="${h(o.date || '')}"></label>` : ''}
+    <label class="f"><span>Số lượng có sẵn (để trống nếu không giới hạn)</span><input id="eS" type="number" min="0" value="${o.stock ?? ''}"></label>
+    <button id="eGo" style="width:100%">Lưu</button>`,
+    (m) => $('#eGo', m).addEventListener('click', async () => {
+      const next = { id: o.id, kind: k, name: $('#eN', m).value, desc: $('#eD', m).value, owner: $('#eO', m).value, price: $('#eP', m).value, unit: $('#eU', m).value, stock: $('#eS', m).value, date: k === 'activity' ? $('#eDt', m).value : '' };
+      if (!next.name.trim()) return toast('Vui lòng nhập tên.');
+      $('#eGo', m).disabled = true;
+      const r = await adminAction('adminUpsert', ['offers', next], (r) => (r.prev ? 'Đã cập nhật ' : 'Đã thêm ') + `"${r.next.name}".`,
+        (r) => (r.prev ? api('adminUpsert', S.admin.pw, 'offers', r.prev) : api('adminDelete', S.admin.pw, 'offers', r.next.id)));
+      if (r) closeModal(); else $('#eGo', m).disabled = false;
+    }), true);
+}
+
+function openEditLot(l) {
+  const isNew = !S.data.lots.some((x) => x.id === l.id);
+  openModal(isNew ? 'Thêm vật phẩm đấu giá' : 'Sửa vật phẩm đấu giá', `
+    <label class="f"><span>Tên vật phẩm</span><input id="lN" value="${h(l.name)}"></label>
+    <label class="f"><span>Mô tả</span><textarea id="lD" rows="3">${h(l.desc)}</textarea></label>
+    <label class="f"><span>Người tặng</span><input id="lO" value="${h(l.donor)}"></label>
+    <div class="two"><label class="f"><span>Giá khởi điểm (đ)</span><input id="lS" type="number" min="0" value="${l.startPrice}"></label><label class="f"><span>Bước giá (đ)</span><input id="lP" type="number" min="1000" value="${l.step}"></label></div>
+    <label class="f"><span>Thời điểm kết thúc (giờ Việt Nam)</span><input id="lE" type="datetime-local" value="${toLocalInput(l.endsAt)}"></label>
+    <button id="lGo" style="width:100%">Lưu</button>`,
+    (m) => $('#lGo', m).addEventListener('click', async () => {
+      const next = { id: l.id, name: $('#lN', m).value, desc: $('#lD', m).value, donor: $('#lO', m).value, startPrice: $('#lS', m).value, step: $('#lP', m).value, endsAt: fromLocalInput($('#lE', m).value) };
+      if (!next.name.trim() || !next.endsAt) return toast('Vui lòng nhập tên và thời điểm kết thúc.');
+      $('#lGo', m).disabled = true;
+      const r = await adminAction('adminUpsert', ['lots', next], (r) => (r.prev ? 'Đã cập nhật ' : 'Đã thêm ') + `"${r.next.name}".`,
+        (r) => (r.prev ? api('adminUpsert', S.admin.pw, 'lots', r.prev) : api('adminDelete', S.admin.pw, 'lots', r.next.id)));
+      if (r) closeModal(); else $('#lGo', m).disabled = false;
+    }), true);
+}
+
+const newId = (p) => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+
+/* ============================== Sự kiện ============================== */
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const id = b.dataset.id; const d = S.data;
+  switch (b.dataset.act) {
+    case 'tab': S.tab = id; render(); window.scrollTo({ top: $('#tabs').offsetTop - 8, behavior: 'smooth' }); break;
+    case 'refresh': load(); break;
+    case 'order': { const o = d.offers.find((x) => x.id === id); if (o) openOrder(o); break; }
+    case 'bid': { const l = d.lots.find((x) => x.id === id); if (l) openBid(l); break; }
+    case 'pay': { const c = d.contributions.find((x) => x.id === id); if (c) openPay(c); break; }
+    case 'csv': exportCsv(); break;
+    case 'login': openLogin(); break;
+    case 'logout': logoutAdmin(); break;
+    case 'recordWin': adminAction('adminRecordWin', [id], 'Đã ghi nhận khoản thanh toán cho người thắng.'); break;
+    case 'togglePaid': {
+      const c = d.contributions.find((x) => x.id === id); if (!c) break;
+      adminAction('adminSetPaid', [S.admin.name, id, !c.paid],
+        (r) => (r.next.paid ? `Đã xác nhận nhận ${vnd(r.next.amount)} từ ${r.next.name}.` : `Đã chuyển khoản của ${r.next.name} về chờ xác nhận.`),
+        (r) => api('adminRestoreContribution', S.admin.pw, r.prev));
+      break;
+    }
+    case 'delC': {
+      const c = d.contributions.find((x) => x.id === id); if (!c) break;
+      if (!confirm(`Xóa khoản ${vnd(c.amount)} của ${c.name}?`)) break;
+      adminAction('adminDeleteContribution', [id], 'Đã xóa một khoản đóng góp.', (r) => api('adminRestoreContribution', S.admin.pw, r));
+      break;
+    }
+    case 'saveCampaign': saveCampaign(); break;
+    case 'addOffer': openEditOffer({ id: newId(id[0]), kind: id, name: '', desc: '', price: 0, unit: id === 'product' ? 'hộp' : id === 'service' ? 'buổi' : 'người', owner: '', stock: id === 'activity' ? null : 10, date: '' }); break;
+    case 'editOffer': { const o = d.offers.find((x) => x.id === id); if (o) openEditOffer(Object.assign({}, o)); break; }
+    case 'delOffer': {
+      const o = d.offers.find((x) => x.id === id); if (!o) break;
+      adminAction('adminDelete', ['offers', id], `Đã xóa "${o.name}".`, (r) => api('adminUpsert', S.admin.pw, 'offers', r));
+      break;
+    }
+    case 'addLot': openEditLot({ id: newId('l'), name: '', desc: '', donor: '', startPrice: 1000000, step: 100000, endsAt: '2027-01-15T17:00:00+07:00' }); break;
+    case 'editLot': { const l = d.lots.find((x) => x.id === id); if (l) openEditLot(Object.assign({}, l)); break; }
+    case 'delLot': {
+      const l = d.lots.find((x) => x.id === id); if (!l) break;
+      adminAction('adminDelete', ['lots', id], `Đã xóa "${l.name}".`, (r) => api('adminUpsert', S.admin.pw, 'lots', r));
+      break;
+    }
+  }
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalOpen()) closeModal(); });
+
+/* Tự làm mới mỗi 90 giây khi trang đang mở và không có hộp thoại */
+setInterval(() => { if (!document.hidden && !modalOpen() && !S.loading && !S.busy) load(true); }, 90000);
+
+load();
+</script>
+</body>
+</html>
